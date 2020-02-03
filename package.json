@@ -1,0 +1,11 @@
+{
+  "name": "cloudbuild-compose",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:houstonj1/cloudbuild-compose.git",
+  "author": "James Houston <houstonj1@wit.edu>",
+  "license": "MIT",
+  "dependencies": {
+    "pg": "^7.18.1"
+  }
+}
