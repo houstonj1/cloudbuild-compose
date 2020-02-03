@@ -1,11 +1,5 @@
 steps:
 - name: 'docker/compose'
   args: ['up', '-d']
-- name: 'docker/compose'
-  args: ['ps']
-- name: 'node:10.18.0'
-  entrypoint: yarn
-  args: ['install']
-- name: 'node:10.18.0'
-  entrypoint: yarn
-  args: ['test']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--network', 'host', '.']

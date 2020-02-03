@@ -1,6 +1,6 @@
 const { Client } = require('pg');
 const client = new Client({
-    host: '0.0.0.0',
+    host: 'localhost',
     user: 'james',
     password: 'james',
     database: 'james'
