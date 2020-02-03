@@ -1,0 +1,9 @@
+steps:
+- name: 'docker/compose'
+  args: ['up', '-d']
+- name: 'node:10.18.0'
+  entrypoint: yarn
+  args: ['install']
+- name: 'node:10.18.0'
+  entrypoint: yarn
+  args: ['test']

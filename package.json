@@ -5,6 +5,9 @@
   "repository": "git@github.com:houstonj1/cloudbuild-compose.git",
   "author": "James Houston <houstonj1@wit.edu>",
   "license": "MIT",
+  "scripts": {
+    "test": "node index.js"
+  },
   "dependencies": {
     "pg": "^7.18.1"
   }
