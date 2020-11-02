@@ -10,12 +10,12 @@ steps:
           external:
             name: cloudbuild
       EOF
+      echo "Showing updated docker-compose file...\n"
       cat docker-compose.yml
+      echo "Starting compose file...\n"
       docker-compose up -d
 - name: 'docker/compose'
   args: ['ps']
-- name: 'docker'
-  args: ['network', 'ls']
 - name: 'node:12-alpine'
   entrypoint: /bin/sh
   args:
@@ -34,7 +34,6 @@ steps:
   args:
     - -c
     - |
-      docker ps -a
       docker run --network cloudbuild -e PG_HOST houstonj1/cloudbuild-compose:latest yarn test
   env:
     - 'PG_HOST=postgres'
