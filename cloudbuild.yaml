@@ -10,6 +10,8 @@ steps:
     - |
       yarn
       yarn test
+  env:
+    - 'PG_HOST=postgres'
 - name: 'docker'
   args: ['build', '-t', 'houstonj1/cloudbuild-compose:latest', '.']
   env:
