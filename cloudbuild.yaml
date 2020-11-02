@@ -1,5 +1,11 @@
 steps:
 - name: 'docker/compose'
   args: ['up', '-d']
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'docker/compose'
+  args: ['ps']
+- name: 'node:12-alpine'
+  entrypoint: /bin/sh
+  args: ['-c', 'ls -al && yarn && yarn test']
+- name: 'docker'
   args: ['build', '--network', 'host', '.']
+
