@@ -3,6 +3,13 @@ steps:
   args: ['up', '-d']
 - name: 'docker/compose'
   args: ['ps']
+- name: 'node:12-alpine'
+  entrypoint: /bin/sh
+  args:
+    - -c
+    - |
+      yarn
+      yarn test
 - name: 'docker'
   args: ['build', '-t', 'houstonj1/cloudbuild-compose:latest', '.']
   env:
