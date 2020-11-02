@@ -2,7 +2,9 @@ version: '3.7'
 
 services:
   postgres:
-    image: postgres:10-alpine
+    image: postgres:11-alpine
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
     ports:
       - 5432:5432
     volumes:
@@ -11,4 +13,4 @@ services:
       test: ['CMD-SHELL', 'pg_isready']
       interval: 10s
       timeout: 2s
-      retries: 3
+      retries: 5

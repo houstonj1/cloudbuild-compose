@@ -1,9 +1,7 @@
-FROM node:10.18.0
+FROM node:12-alpine
 
 COPY . .
 
-RUN yarn install
-
-RUN yarn test
+RUN yarn
 
 
