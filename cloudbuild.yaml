@@ -3,6 +3,8 @@ steps:
   args: ['up', '-d']
 - name: 'docker/compose'
   args: ['ps']
+- name: 'docker'
+  args: ['network', 'ls']
 - name: 'node:12-alpine'
   entrypoint: /bin/sh
   args:
