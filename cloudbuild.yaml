@@ -8,5 +8,10 @@ steps:
   env:
     - 'DOCKER_BUILDKIT=1'
 - name: 'docker'
-  args: ['run', '--network', 'host', 'houstonj1/cloudbuild-compose:latest', 'yarn test']
+  entrypoint: /bin/sh
+  args:
+    - -c
+    - |
+      docker ps -a
+      docker run --network host houstonj1/cloudbuild-compose:latest yarn test
 
