@@ -35,7 +35,7 @@ steps:
     - -c
     - |
       docker ps -a
-      docker run --network cloudbuild houstonj1/cloudbuild-compose:latest yarn test
+      docker run --network cloudbuild -e PG_HOST houstonj1/cloudbuild-compose:latest yarn test
   env:
     - 'PG_HOST=postgres'
 
