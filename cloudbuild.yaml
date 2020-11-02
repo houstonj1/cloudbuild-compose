@@ -3,9 +3,10 @@ steps:
   args: ['up', '-d']
 - name: 'docker/compose'
   args: ['ps']
-- name: 'node:12-alpine'
-  entrypoint: /bin/sh
-  args: ['-c', 'ls -al && yarn && yarn test']
 - name: 'docker'
-  args: ['build', '--network', 'host', '.']
+  args: ['build', '-t', 'houstonj1/cloudbuild-compose:latest', '.']
+  env:
+    - 'DOCKER_BUILDKIT=1'
+- name: 'docker'
+  args: ['run', '--network', 'host', 'houstonj1/cloudbuild-compose:latest', 'yarn test']
 
