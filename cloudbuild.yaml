@@ -1,6 +1,17 @@
 steps:
 - name: 'docker/compose'
-  args: ['up', '-d']
+  entrypoint: /bin/sh
+  args:
+    - -c
+    - |
+      cat <<EOF >> docker-compose.yml
+      networks:
+        default:
+          external:
+            name: cloudbuild
+      EOF
+      cat docker-compose.yml
+      docker-compose up -d
 - name: 'docker/compose'
   args: ['ps']
 - name: 'docker'
